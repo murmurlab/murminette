@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p</title>
+
+</head>
+<body>
+    death time<label for=""></label><input type="number" name="" id="death">
+        <h4>statistics:</h4>
+        lines:<span>0</span><br>
+        eats:<span>0</span><br>
+        max lap:<span>0</span><br>
+    <br>
+    <textarea disabled="true" type="text" id="input" cols="30" rows="10"></textarea>
+    <div id="output"></div>
+    <script>
+        // ============================================================================
+        // https://github.com/zonayedpca/AlgoDS.js/blob/master/linkedList/linkedList.js
+        // ============================================================================
+        // ============================================================================
+        // https://github.com/zonayedpca/AlgoDS.js/blob/master/linkedList/linkedList.js
+        // ============================================================================
+        // ============================================================================
+        // https://github.com/zonayedpca/AlgoDS.js/blob/master/linkedList/linkedList.js
+        // ============================================================================
+        class Node {
+        constructor(data, next = null) {
+            this.data = data;
+            this.next = next;
+        }
+        }
+        class LinkedList {
+            constructor() {
+                this.head = null;
+            }
+
+            insertAtFirst(item) {
+                this.head = new Node(item, this.head);
+            }
+
+            getSize() {
+                let counter = 0;
+                let node = this.head;
+
+                while(node) {
+                    counter++;
+                    node = node.next;
+                }
+                return counter;
+            }
+
+            getFirst() {
+                return this.head;
+            }
+
+            getLast() {
+            if(!this.head) {
+                return null;
+            }
+
+            let node = this.head;
+            while(node) {
+                if(!node.next) {
+                return node;
+                }
+                node = node.next;
+            }
+            }
+
+            removeFirst() {
+            if(!this.head) {
+                return;
+            }
+
+            this.head = this.head.next;
+            }
+
+            removeLast() {
+            if(!this.head) {
+                return;
+            }
+
+            if(!this.head.next) {
+                this.head = null;
+            }
+
+            let previous = this.head;
+            let node =this.head.next;
+
+            while(node.next) {
+                previous = node;
+                node = node.next;
+            }
+
+            previous.next = null;
+            }
+
+            insertLast(item) {
+            const last = this.getLast();
+            const newNode = new Node(item);
+            if(last) {
+                last.next = newNode;
+            } else {
+                this.head = newNode;
+            }
+            }
+
+            getAt(index) {
+            let count = 0;
+            let node = this.head;
+
+            while(node) {
+                if(count === index) {
+                return node;
+                }
+                count++;
+                node = node.next;
+            }
+
+            return null;
+            }
+
+            removeAt(index) {
+            if(!this.head) {
+                return;
+            }
+
+            if(index === 0) {
+                this.head = this.head.next;
+                return;
+            }
+
+            const previous = this.getAt(index - 1);
+            if(!previous || !previous.next) {
+                return;
+            }
+            previous.next = previous.next.next;
+            }
+
+            insertAt(data, index) {
+            if(!this.head) {
+                this.head = new Node(data);
+                return;
+            }
+
+            if(index === 0) {
+                this.head = new Node(data, this.head);
+                return;
+            }
+
+            const previous = this.getAt(index - 1) || this.getLast();
+            previous.next = new Node(data, previous.next);
+            }
+
+            midpoint() {
+            let fast = this.getFirst();
+            let slow = this.getFirst();
+
+            while(fast.next && fast.next.next) {
+                slow = slow.next;
+                fast = fast.next.next;
+            }
+
+            return slow;
+            }
+
+            forEach(fn) {
+            let node = this.head;
+            let count = 0;
+            while(node) {
+                fn(node, count, this.head);
+                node = node.next;
+                count++;
+            }
+            }
+
+            *[Symbol.iterator]() {
+            let node = this.head;
+            let count = 0;
+            while(node) {
+                yield [node, count];
+                node = node.next;
+                count++;
+            }
+            }
+
+            clear() {
+            this.head = null;
+            }
+        }
+        // ============================================================================
+        // https://github.com/zonayedpca/AlgoDS.js/blob/master/linkedList/linkedList.js
+        // ============================================================================
+        // ============================================================================
+        // https://github.com/zonayedpca/AlgoDS.js/blob/master/linkedList/linkedList.js
+        // ============================================================================
+        // ============================================================================
+        // https://github.com/zonayedpca/AlgoDS.js/blob/master/linkedList/linkedList.js
+        // ============================================================================
+
+
+
+
+
+
+        const   input = document.getElementById("input")
+,               deth = document.getElementById("death")
+,               output = document.getElementById("output");
+        let     lap;
+        const   check = () =>
+        {
+            const   parse = input.value.split('\n').map
+                    (v => {
+                        return (v.split(' '));
+                    })
+,                   death = Number(document.getElementById("death").value);
+            let     philo_ct;
+
+            console.log(parse);
+            {
+                const l1 = new LinkedList();
+                let _
+,                   ctl;
+
+                ctl = 0;
+                _ = 0;
+                while (_ < parse.length && !(l1.forEach((node, count, head) => (node.data == parse[_][1] ? ctl = 1 : 0)), ctl))
+                    parse[_][2] == "has" ? _++ : l1.insertAtFirst(parse[_++][1])
+                console.log(lap = new Array(l1.getSize()))
+            }
+            output.innerHTML = ""
+            parse.forEach
+            ((f, i) => {
+                if (f[3] != "eating")
+                    return
+                // console.log(i);
+                if (f[0] - lap[f[1]] > death)
+                {
+                    // console.log(`diff <${f[0] - lap[f[1]]} > ${death}> in timestamp ${f[0]}, id: ${f[1]}, line ${i}`)
+                    const elm = document.createElement("p")
+                    elm.innerText = `diff <${f[0] - lap[f[1]]} > ${death}> in timestamp ${f[0]}, id: ${f[1]}, line ${i}`
+                    output.appendChild(elm)
+                }
+                lap[f[1]] = f[0];
+            });
+        }
+,       deat = () =>
+        {
+            if (deth.value > 0)
+                input.removeAttribute("disabled"), check()
+            else
+                input.setAttribute("disabled", "")
+        }
+,       inp = () =>
+        {
+            if (inp.value != "")
+                check()
+        }
+        input.addEventListener("change", inp);
+        deth.addEventListener("change", deat);
+    </script>
+
+</body>
+</html>
