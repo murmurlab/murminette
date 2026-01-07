@@ -21,6 +21,9 @@ libft(){
 		echo "/* #define DEBUG */" > ./murminettes/libft/v.h
 		exit 0;
 	fi
+	if ! [ -f ./murminettes/libft/v.h ]; then
+		echo "/* #define DEBUG */" > ./murminettes/libft/v.h
+	fi
 	make  ./murminettes/libft/bin_lib42 p_wd="$1" verbose="$2" || { echo "Makefile $? error in $1"; exit 1; }
 	./murminettes/libft/bin_lib42
 	# cc -L "$1" -lft -I "$1" -o test_libft libft/murminette.c || { echo "Compilation error for test_libft"; exit 1; }
