@@ -44,9 +44,8 @@ all:
 	@echo "usage: make <libft|gnl|...>"
 
 $(test_lib42)%.o: $(test_lib42)%.c $(test_lib42)/*.h ${prj_lib42}/libft.a
-	echo "$(cflags_lib42)==============================="
-	gcc $(cflags_lib42) -c $< -o $@
+	@gcc $(cflags_lib42) -c $< -o $@ 2> /dev/null 1> /dev/null
 $(bin_lib42): $(objs_lib42)
-	gcc -o $@ $^ $(ldflags_lib42)
+	@gcc -o $@ $^ $(ldflags_lib42)
 
 $(murmur_eval):

@@ -17,10 +17,12 @@ libft(){
 	echo "Testing libft in directory: $1 with verbose=$2"
 	if [ "$2" == "-v" ]; then
 		echo "#define DEBUG" > ./murminettes/libft/v.h
-	else
+		exit 0;
+	elif [ "$2" == "-vno" ]; then
 		echo "/* #define DEBUG */" > ./murminettes/libft/v.h
+		exit 0;
 	fi
-	make ./murminettes/libft/bin_lib42 p_wd="$1" verbose="$2" || { echo "Makefile error in $1"; exit 1; }
+	make  ./murminettes/libft/bin_lib42 p_wd="$1" verbose="$2" || { echo "Makefile $? error in $1"; exit 1; }
 	./murminettes/libft/bin_lib42
 	# cc -L "$1" -lft -I "$1" -o test_libft libft/murminette.c || { echo "Compilation error for test_libft"; exit 1; }
 }
