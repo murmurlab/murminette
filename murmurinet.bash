@@ -1,7 +1,7 @@
 #!/bin/bash
 
-bash -l -c 'murmur <<<""'
-clear
+bash -l -c 'murmur \'
+# clear
 # exit 0;
 
 libft(){
@@ -14,7 +14,8 @@ libft(){
 		echo "Error: Makefile not found in $1."
 		exit 1
 	fi
-	make murminettes/libft/bin_lib42 p_wd="$1" || { echo "Makefile error in $1"; exit 1; }
+	echo "Testing libft in directory: $1"	
+	make ./murminettes/libft/bin_lib42 p_wd="$1" || { echo "Makefile error in $1"; exit 1; }
 	./murminettes/libft/bin_lib42
 	# cc -L "$1" -lft -I "$1" -o test_libft libft/murminette.c || { echo "Compilation error for test_libft"; exit 1; }
 }
