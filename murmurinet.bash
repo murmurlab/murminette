@@ -1,6 +1,5 @@
 #!/bin/bash
 
-bash -l -c 'murmur \'
 # clear
 # exit 0;
 
@@ -37,10 +36,12 @@ if [ $# -lt 2 ]; then
 	exit 1
 fi
 case $1 in
-	# u)
-	# 	echo "Updating murmurinet..."
-	# 	update "$3"
-	# 	;;
+	u)
+		echo "Updating murmurinet..."
+		bash -l -c 'murmur \'
+		echo "Update complete."
+		exit 0
+		;;
     libft)
 		libft "$2" "$3"
         ;;
