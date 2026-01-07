@@ -3,6 +3,7 @@
 #include <string.h>
 #include <bsd/string.h>
 #include <stdio.h>
+#include "./v.h"
 
 typedef struct s_strlcpy t_strlcpy;
 typedef struct s_strlcpy t_strlcat;
@@ -45,8 +46,12 @@ void		ft_strlcpy_eval_x(){
 	printf(", ret: %zu ]\n", ((t_strlcpy *)_exp)->size);
 }
 void		ft_strlcpy_eval_eq(){
-	ft_strlcpy_eval_x();
-	printf("==================TEST %zu="GREEN"[OK]"RESET"================\n\n\n", _idx);	
+	#ifdef DEBUG
+		ft_strlcpy_eval_x();
+		printf("==================TEST %zu="GREEN"[OK]"RESET"================\n\n\n", _idx);	
+	#else
+		printf(GREEN"t_%zu: [OK] "RESET, _idx);
+	#endif // DEBUG
 }
 void		ft_strlcpy_eval_neq(){
 	ft_strlcpy_eval_x();
@@ -64,10 +69,12 @@ void		ft_strlcpy_eval(){
 	);
 	eq = (((t_strlcpy *)_res)->size == ((t_strlcpy *)_exp)->size);
 
-	printf("=============== %s ============\n", _name);
-	printf("try		[ src: %s, dst: ", ((t_strlcpy *)_try)->src);fflush(stdout);
-	write(1, ((t_strlcpy *)_try)->dst, 10);
-	printf(", sz: %zu ]\n", ((t_strlcpy *)_try)->size);
+	#ifdef DEBUG
+		printf("=============== %s ============\n", _name);
+		printf("try		[ src: %s, dst: ", ((t_strlcpy *)_try)->src);fflush(stdout);
+		write(1, ((t_strlcpy *)_try)->dst, 10);
+		printf(", sz: %zu ]\n", ((t_strlcpy *)_try)->size);	
+	#endif // DEBUG
 	(eq && eqstr == 0) ? ft_strlcpy_eval_eq() : ft_strlcpy_eval_neq();
 }
 
@@ -137,6 +144,7 @@ int main(){
 	// /* 7 */ check(ft_strlcpy(dest, src, 8) == strlen(src) && !memcmp(src, dest, 7)); showLeaks(); memset(dest, 'A', 10);
 	// /* 8 */ check(ft_strlcpy(dest, "", 42) == 0 && !memcmp("", dest, 1)); showLeaks(); memset(dest, 0, 10);
 	// /* 9 */ check(ft_strlcpy(dest, "1", 0) == 1 && dest[0] == 0); showLeaks(); memset(dest, 'A', 10);	
+	printf("\n======== STRLCPY TESTS ========\n");
 	NEW_CASES( ft_strlcpy_test,
 		((&(t_strlcpy){
 			.size = 0 ,													// size arg
@@ -267,7 +275,7 @@ int main(){
 	// memset(dest, 0, 30);
 	// /* 17 */ check(ft_strlcat(dest, "123", 0) == 3 && !strcmp(dest, "")); showLeaks();
 
-	printf("======== STRLCAT TESTS ========\n");
+	printf("\n======== STRLCAT TESTS ========\n");
 	NEW_CASES( ft_strlcat_test,
 		((&(t_strlcpy){
 			.dst = (_tmp = (char [30]){0}, ({
@@ -478,5 +486,6 @@ int main(){
 			_tmp
 		))
 	)
+	printf("\n");
 	return 0;
 }
