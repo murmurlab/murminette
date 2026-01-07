@@ -43,6 +43,9 @@ log:
 all:
 	@echo "usage: make <libft|gnl|...>"
 
+${prj_lib42}/libft.a:
+	@make -C ${prj_lib42} all
+
 $(test_lib42)%.o: $(test_lib42)%.c $(test_lib42)/*.h ${prj_lib42}/libft.a
 	@gcc $(cflags_lib42) -c $< -o $@ 2> /dev/null 1> /dev/null
 $(bin_lib42): $(objs_lib42)
