@@ -16,6 +16,18 @@ struct s_strlcpy {
 
 void		ft_strlcat_test()
 {
+	#ifdef DEBUG
+		printf("=============== %s ============\n", _name);
+		printf("try		[ src: %s, dst: ", ((t_strlcpy *)_try)->src);fflush(stdout);
+		write(1, ((t_strlcpy *)_try)->dst, 10);
+		printf(", sz: %zu ]\n", ((t_strlcpy *)_try)->size);
+
+		printf("expected	[ dst: ");
+		fflush(stdout);
+		write(1, ((t_strlcpy *)_exp)->dst, 10);
+		printf(", ret: %zu ]\n", ((t_strlcpy *)_exp)->size);
+
+	#endif // DEBUG
 	_res = &(t_strlcat){};
 	((t_strlcat *)_res)->dst = ((t_strlcat *)_try)->dst;
 	((t_strlcat *)_res)->size = ft_strlcat(
@@ -47,14 +59,14 @@ void		ft_strlcpy_eval_x(){
 }
 void		ft_strlcpy_eval_eq(){
 	#ifdef DEBUG
-		ft_strlcpy_eval_x();
+		// ft_strlcpy_eval_x();
 		printf("==================TEST %zu="GREEN"[OK]"RESET"================\n\n\n", _idx);	
 	#else
 		printf(GREEN"t_%zu: [OK] "RESET, _idx);
 	#endif // DEBUG
 }
 void		ft_strlcpy_eval_neq(){
-	ft_strlcpy_eval_x();
+	// ft_strlcpy_eval_x();
 	printf(YELLOW"your		[ src: no, dst: "RESET);
 	fflush(stdout);
 	write(1, ((t_strlcpy *)_res)->dst, 10);
@@ -69,12 +81,12 @@ void		ft_strlcpy_eval(){
 	);
 	eq = (((t_strlcpy *)_res)->size == ((t_strlcpy *)_exp)->size);
 
-	#ifdef DEBUG
-		printf("=============== %s ============\n", _name);
-		printf("try		[ src: %s, dst: ", ((t_strlcpy *)_try)->src);fflush(stdout);
-		write(1, ((t_strlcpy *)_try)->dst, 10);
-		printf(", sz: %zu ]\n", ((t_strlcpy *)_try)->size);	
-	#endif // DEBUG
+	// #ifdef DEBUG
+	// 	printf("=============== %s ============\n", _name);
+	// 	printf("try		[ src: %s, dst: ", ((t_strlcpy *)_try)->src);fflush(stdout);
+	// 	write(1, ((t_strlcpy *)_try)->dst, 10);
+	// 	printf(", sz: %zu ]\n", ((t_strlcpy *)_try)->size);	
+	// #endif // DEBUG
 	(eq && eqstr == 0) ? ft_strlcpy_eval_eq() : ft_strlcpy_eval_neq();
 }
 
