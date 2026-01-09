@@ -4,7 +4,11 @@
 
 ```bash
 git clone https://github.com/murmurlab/scripts.git ~/.murmurbox ; bash ~/.murmurbox/murmurbox.bash<<<'' ; bash -l -c 'murmur \'
+```
+```bash
 bash -l
+```
+```bash
 murmur murminette libft "YOUR_LIBFT_ABSOLUTEPATH"
 ```
 
