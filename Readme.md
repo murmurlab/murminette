@@ -16,6 +16,7 @@ murmur murminette libft "YOUR_LIBFT_ABSOLUTEPATH"
 
 This is an example of how to write a test case. There may be more complex ways to write case studies; this is a simple one. You can give sample tests like this as input to the AI ​​and receive other test outputs. You can add your tests and send pull requests in this way.
 
+file: murminette/murminettes/libft/lib42.c
 ```c
 NEW_CASES( ft_strlcpy_test,
     ((&(t_strlcpy){
