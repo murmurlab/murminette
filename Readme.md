@@ -29,3 +29,7 @@ NEW_CASES( ft_strlcpy_test,
 ```
 
 The murmurbox (command murmur) downloads the necessary murmur eval test library when installing murminette. The makefile compiles the test code for the specific project with the required library.
+
+## usage
+
+To see detailed output, compile the test with the -v / -vno parameter (`murmur murminette libft "YOUR_LIBFT_ABSOLUTEPATH" -v`) then run it normally (`murmur murminette libft "YOUR_LIBFT_ABSOLUTEPATH"`)
