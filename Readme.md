@@ -37,3 +37,5 @@ The murmurbox (command murmur) downloads the necessary murmur eval test library 
 ## usage
 
 To see detailed output, compile the test with the -v / -vno parameter (`murmur murminette libft "YOUR_LIBFT_ABSOLUTEPATH" -v`) then run it normally (`murmur murminette libft "YOUR_LIBFT_ABSOLUTEPATH"`)
+
+### You can create an issue for errors, bugs, or features you want.
