@@ -14,6 +14,8 @@ murmur murminette libft "YOUR_LIBFT_ABSOLUTEPATH"
 
 ## logic
 
+> note: this tester uses [murmur eval](https://github.com/lab-murmur-land/murmur.eval) as a test framework.
+
 This is an example of how to write a test case. There may be more complex ways to write case studies; this is a simple one. You can give sample tests like this as input to the AI ​​and receive other test outputs. You can add your tests and send pull requests in this way.
 
 file: murminette/murminettes/libft/lib42.c
@@ -33,7 +35,7 @@ NEW_CASES( ft_strlcpy_test,
     ...
 ```
 
-The murmurbox (command murmur) downloads the necessary murmur eval test library when installing murminette. The makefile compiles the test code for the specific project with the required library.
+The murmurbox (command murmur) downloads the necessary [murmur eval](https://github.com/lab-murmur-land/murmur.eval) test library when installing murminette. The makefile compiles the test code for the specific project with the required library.
 
 ## usage
 
