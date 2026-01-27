@@ -3,6 +3,18 @@
 # clear
 # exit 0;
 
+get_next_line(){
+	# cd "$1"
+	if [ ! -d "$1" ]; then
+		echo "Error: Directory $1 does not exist."
+		exit 1
+	fi
+	echo "Testing get_next_line in directory: $1"
+	bash ./murminettes/get_next_line/all_tests.bash "$(pwd)/murminettes/get_next_line/test.c" "$1"
+
+	# cc -L "$1" -lgnl -I "$1" -o test_gnl murminettes/get_next_line/murminette.c || { echo "Compilation error for test_gnl"; exit 1; }
+}
+
 libft(){
 	# cd "$1"
 	if [ ! -d "$1" ]; then
@@ -49,6 +61,7 @@ case $1 in
 		libft "$2" "$3"
         ;;
     gnl)
+		get_next_line "$2"
         ;;
     *)
 		echo "usage: $0 {libft|gnl} [path]"
