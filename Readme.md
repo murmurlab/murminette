@@ -19,9 +19,9 @@ murmur murminette libft "/YOUR/PROJECT/ABSOLUTE/PATH/"
 * libft
 * get_next_line
 
-to evaluate testers, execute tester with absolute project path like this:
-```murmur murminette gnl PATH/YOUR/PROJECT/```
-eg:
+to evaluate testers, execute tester with absolute project path like this: \
+```murmur murminette gnl PATH/YOUR/PROJECT/``` \
+eg: \
 ```murmur murminette gnl /home/ahmbasar/sources/repos/42-core/get_next_line```
 
 ## logic
