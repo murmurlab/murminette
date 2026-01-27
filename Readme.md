@@ -16,7 +16,7 @@ murmur murminette libft "/YOUR/PROJECT/ABSOLUTE/PATH/"
 
 ## Testers
 
-* libft
+* ~~libft~~ (only ft_strlcpy, ft_strlcat)
 * get_next_line
 
 to evaluate testers, execute tester with absolute project path like this: \
