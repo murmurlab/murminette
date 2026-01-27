@@ -5,12 +5,24 @@
 ```bash
 git clone https://github.com/murmurlab/scripts.git ~/.murmurbox ; bash ~/.murmurbox/murmurbox.bash<<<'' ; bash -l -c 'murmur \'
 ```
+
 ```bash
 bash -l
 ```
+
 ```bash
-murmur murminette libft "YOUR_LIBFT_ABSOLUTEPATH"
+murmur murminette libft "/YOUR/PROJECT/ABSOLUTE/PATH/"
 ```
+
+## Testers
+
+* libft
+* get_next_line
+
+to evaluate testers, execute tester with absolute project path like this:
+```murmur murminette gnl PATH/YOUR/PROJECT/```
+eg:
+```murmur murminette gnl /home/ahmbasar/sources/repos/42-core/get_next_line```
 
 ## logic
 
@@ -19,6 +31,7 @@ murmur murminette libft "YOUR_LIBFT_ABSOLUTEPATH"
 This is an example of how to write a test case. There may be more complex ways to write case studies; this is a simple one. You can give sample tests like this as input to the AI ​​and receive other test outputs. You can add your tests and send pull requests in this way.
 
 file: murminette/murminettes/libft/lib42.c
+
 ```c
 NEW_CASES( ft_strlcpy_test,
     ((&(t_strlcpy){
@@ -41,4 +54,4 @@ The murmurbox (command murmur) downloads the necessary [murmur eval](https://git
 
 To see detailed output, compile the test with the -v / -vno parameter (`murmur murminette libft "YOUR_LIBFT_ABSOLUTEPATH" -v`) then run it normally (`murmur murminette libft "YOUR_LIBFT_ABSOLUTEPATH"`)
 
-### You can create an issue for errors, bugs, or features you want.
+### You can create an issue for errors, bugs, or features you want
