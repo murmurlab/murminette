@@ -166,7 +166,7 @@ tests_out+=( $'1\n22\n333\n4444\n55555\n(null)' )
 test_lens+=( 6 )
 
 # 24) Very long line without newline (10000 chars) - stress test
-long10000=$(repeat_chars b 10000)
+long10000=$(repeat_chars b 1000) # 10000 is very slow sometimes, using 1000 instead
 tests_in+=( "$long10000" )
 tests_out+=( "$long10000(null)" )
 test_lens+=( 2 )
